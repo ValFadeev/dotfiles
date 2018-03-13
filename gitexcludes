@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+*.pem
+*.iml
+node_modules/
+target/
+terraform.tfstate.d/
+.terraform/
+cache/
+.sbt.ivy.lock
+*.csr
+resources/public/*

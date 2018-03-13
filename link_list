@@ -1,0 +1,10 @@
+bash_profile
+bash_profile.d
+ghci
+git-completion.bash
+git-prompt.sh
+gitconfig
+gitexcludes
+tmux.conf
+vim
+vimrc
