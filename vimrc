@@ -105,7 +105,7 @@ Plug 'https://github.com/cespare/vim-toml'
 Plug 'https://github.com/tell-k/vim-autopep8.git'
 
 " fzf
-Plug '/usr/loca/opt/fzf'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Idris
@@ -128,6 +128,9 @@ Plug 'https://github.com/tpope/vim-repeat'
 
 " Dockerfile
 Plug 'https://github.com/ekalinin/Dockerfile.vim.git'
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -212,12 +215,7 @@ augroup END
 " Turn on groovy syntax highlighting for Jenkinsfile
 augroup jenkinsfile
   autocmd!
-  autocmd BufRead Jenkinsfile.* set filetype=groovy | set shiftwidth=4 | set tabstop=4
-augroup END
-
-augroup qsql
-  autocmd!
-  autocmd BufRead *.qsql set filetype=sql
+  autocmd BufRead Jenkinsfile* set filetype=groovy shiftwidth=4 softtabstop=4
 augroup END
 
 " Fix path issues from vim.wikia.com/wiki/Set_working_directory_to_the_current_file

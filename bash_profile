@@ -7,6 +7,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="$PATH:/usr/local/Cellar/python3/3.6.4_2/bin"
 export PATH="$PATH:$HOME/Library/Haskell/bin:$SCALA_HOME/bin:$GOPATH/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH=/Users/vfadeev/.cache/rebar3/bin:$PATH
 export WORKON="$HOME/.virtualenvs"
 # https://news.ycombinator.com/item?id=14520194
 export HISTCONTROL=ignoreboth
@@ -16,6 +17,11 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
+
+# Dlang
+dactivate() {
+  . $HOME/dlang/dmd-2.080.1/activate
+}
 #
 
 . /usr/local/bin/virtualenvwrapper.sh
@@ -65,7 +71,6 @@ fp () {
     fi
 }
 
-
 uuid () {
     uuidgen | tr '[:upper:]' '[:lower:]'
 }
@@ -82,8 +87,12 @@ pem2crt () {
   openssl x509 -in "$1.pem" -inform PEM -out "$1.crt"
 }
 
+docker_rmi_tags () {
+  docker images "$1" --format "{{.Repository}}:{{.Tag}}" | xargs docker rmi
+}
+
 # Vim
-alias vim="mvim -v -c NERDTreeToggle"
+alias vim="mvim -v"
 #
 alias make="/usr/local/Cellar/make/4.2.1_1/bin/gmake"
 
@@ -121,3 +130,5 @@ export PATH
 
 source ~/.bashrc
 source $HOME/.bash_profile.d/*
+
+export PATH="$HOME/.cargo/bin:$PATH"
